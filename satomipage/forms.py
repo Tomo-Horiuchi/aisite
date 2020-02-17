@@ -2,9 +2,12 @@
 satomipageのform
 """
 from django import forms
+from .models import SatomiImg
 
-class PhotoForm(forms.Form):
+class PhotoForm(forms.ModelForm):
     """
     画像アップロード用
     """
-    image = forms.ImageField()
+    class Meta:
+        model = SatomiImg
+        fields = ('image',)
